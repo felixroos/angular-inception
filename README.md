@@ -116,7 +116,7 @@ The contents of the link function have been moved into the RecursionHelper's com
 
 Screenshot:
 
-![Angular Inception](/screenshots/inception?raw=true)
+![Angular Inception](/screenshots/inception.png?raw=true)
 
 ##Building a Tree List
 With this knowledge, a (arbitrary deep) list can be built:
