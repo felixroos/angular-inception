@@ -3,14 +3,16 @@
  https://github.com/felixroos/angular-inception.git
  */
 'use strict';
-angular.module('inception', []).directive('inception', function() {
+angular.module('inception', ['RecursionHelper']).directive('inception', function(RecursionHelper) {
   return {
     scope:       {
       level:   '='
     },
     templateUrl: 'inception.tpl.html',
-    link:        function(scope) {
-      scope.level = scope.level || 1;
+    compile: function(element) {
+      return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){
+        scope.level = scope.level || 1;
+      });
     }
   };
 });
