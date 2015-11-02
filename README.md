@@ -43,6 +43,8 @@ inception.tpl.html
 ```
 *Result*: Endless Loading.
 
+![Inception](http://i0.kym-cdn.com/photos/images/original/000/384/176/d2f.jpg)
+
 ##How it really works
 Thanks to Mark Lagendijk and [this Stackoverflow](http://stackoverflow.com/questions/14430655/recursion-in-angular-directives), the most clean Solution is this:
 
@@ -117,6 +119,8 @@ The contents of the link function have been moved into the RecursionHelper's com
 Screenshot:
 
 ![Angular Inception](/screenshots/inception.png?raw=true)
+
+![Cheers](https://imgflip.com/s/meme/Leonardo-Dicaprio-Cheers.jpg)
 
 ##Building a Tree List
 With this knowledge, a (arbitrary deep) list can be built:
