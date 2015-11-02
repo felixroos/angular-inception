@@ -1,0 +1,4 @@
+<ul>
+  <li>Level {{level}}.{{index}} | <a ng-click="addElement()">Add</a></li>
+  <inception-list level="level+1" index="$index" ng-repeat="element in list track by $index"></inception-list>
+</ul>

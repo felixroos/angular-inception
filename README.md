@@ -25,7 +25,6 @@ angular.module('inception', [])
 .directive('inception', function() {
   return {
     scope:       {
-      ngModel: '=',
       level:   '='
     },
     templateUrl: 'inception.tpl.html',
@@ -114,3 +113,43 @@ angular.module('inception', ['RecursionHelper'])
 });
 ```
 The contents of the link function have been moved into the RecursionHelper's compile function (inside the directives compile function). Also see [this Plunkr](http://plnkr.co/edit/JAIyolmqPqO9KsynSiZp?p=preview).
+
+##Building a Tree List
+With this knowledge, a (arbitrary deep) list can be built:
+
+```javascript
+angular.module('inception', ['RecursionHelper'])
+.directive('inceptionList', function(RecursionHelper) {
+  return {
+    scope:       {
+      list:        '=',
+      level:       '=',
+      index:       '='
+    },
+    templateUrl: 'inception-list.tpl.html',
+    compile:     function(element) {
+      return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn) {
+        scope.list = [];
+        scope.level = scope.level || 0;
+        scope.index = scope.index || 0;
+        scope.addElement = function() {
+          scope.list.push("New Element");
+        };
+      });
+    }
+  };
+});
+```
+
+Template:
+
+```html
+<ul>
+  <li>Level {{level}}.{{index}} | <a ng-click="addElement()">Add</a></li>
+  <inception-list level="level+1" index="$index" ng-repeat="element in list track by $index">
+  </inception-list>
+</ul>
+```
+Screenshot:
+
+![Angular Inception List](/screenshots/list.png?raw=true)
