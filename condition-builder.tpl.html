@@ -1,0 +1,16 @@
+<ul ng-class="[{'top-node':index<1},{'bottom-node':index>1}]">
+  <li ng-if="isObject(ngModel)&&!isArray(ngModel)" class="node">
+    <span ng-include="nodeTemplate"></span>
+
+    <a ng-if="!isArray(ngModel)" ng-click="goDeeper(ngModel,'and')">AND</a>
+    <a ng-if="!isArray(ngModel)" ng-click="goDeeper(ngModel,'or')">OR</a>
+    <a ng-if="!isArray(ngModel)" ng-click="elevator((index===0?2:0))">X</a>
+  </li>
+  <condition-builder ng-if="isArray(ngModel)" elevator="elevate" ng-model="ngModel[$index]" level="level+1"
+                  index="$index"
+                  ng-repeat="element in ngModel track by $index"></condition-builder>
+</ul>
+
+<li ng-if="!isArray(ngModel)&&!isObject(ngModel)" class="operator">
+  {{ngModel}}
+</li>

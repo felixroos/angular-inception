@@ -1,12 +1,47 @@
-<!doctype html>
-<html ng-app="inception">
+<!DOCTYPE html>
+<html lang="en" ng-app="inception">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Angular Inception</title>
+
+  <!-- Bootstrap -->
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/json-formatter/dist/json-formatter.js"></script>
   <script src="angular-recursion.js"></script>
-  <script src="inception.js"></script>
+  <script src="condition-builder.js"></script>
+  <link rel="stylesheet" type="text/css" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css"/>
+  <link rel="stylesheet" type="text/css" href="bower_components/json-formatter/dist/json-formatter.css"/>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+
 </head>
 <body>
-<h1>Angular Inception</h1>
-<inception></inception>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Angular Condition Builder</h1>
+
+    <p>This is a simple recursive condition builder.</p>
+
+    <p><a class="btn btn-primary" href="https://github.com/felixroos/angular-inception">View on Github</a></p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <h2>Demo</h2>
+      <condition-builder template="node.tpl.html" ng-model="json"></condition-builder>
+    </div>
+    <div class="col-md-6">
+      <h2>JSON</h2>
+      <json-formatter open="10" json="json"></json-formatter>
+    </div>
+  </div>
+</div>
 </body>
 </html>
