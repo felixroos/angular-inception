@@ -114,6 +114,10 @@ angular.module('inception', ['RecursionHelper'])
 ```
 The contents of the link function have been moved into the RecursionHelper's compile function (inside the directives compile function). Also see [this Plunkr](http://plnkr.co/edit/JAIyolmqPqO9KsynSiZp?p=preview).
 
+Screenshot:
+
+![Angular Inception](/screenshots/inception?raw=true)
+
 ##Building a Tree List
 With this knowledge, a (arbitrary deep) list can be built:
 
